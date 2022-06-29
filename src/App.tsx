@@ -1,5 +1,5 @@
 import React from "react";
-import { Loader } from "./Components";
+import { Loader } from "./Shared/Components";
 import GlobalStyles from "./Styles/global";
 
 const App: React.FC = () => {

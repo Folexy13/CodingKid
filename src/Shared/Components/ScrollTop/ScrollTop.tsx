@@ -11,6 +11,7 @@ const ScrollTop = (props: any) => {
   // ** State
   const [visible, setVisible] = useState(false);
 
+  //** Hook
   useEffect(() => {
     if (window) {
       window.addEventListener("scroll", () => {
