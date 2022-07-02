@@ -21,7 +21,8 @@ const animate = keyframes`
 `;
 const text = keyframes`
  50% {
-    color: #000;
+    color: rgba(0, 0, 0, 0.1);
+    transform: 0.3s all ease
   }
 `;
 
@@ -56,18 +57,19 @@ export const Content = styled.span`
     width: 15px;
     height: 15px;
     border-radius: 50%;
-    background-color: #00ff0a;
-    box-shadow: 0 0 10px #00ff0a, 0 0 20px #00ff0a, 0 0 40px #00ff0a,
-      0 0 60px #00ff0a, 0 0 80px #00ff0a, 0 0 100px #00ff0a;
+    background-color: #bf40bf;
+    box-shadow: 0 0 10px #bf40bf, 0 0 20px #bf40bf, 0 0 40px #bf40bf,
+      0 0 60px #bf40bf, 0 0 80px #bf40bf, 0 0 100px #bf40bf;
     animation: ${animate} 2s linear infinite;
     animation-delay: calc(0.09s * var(--i));
   }
   &.text {
-    color: #00ff0a;
+    color: #bf40bf;
     font-size: 17px;
     text-transform: uppercase;
     letter-spacing: 1px;
     line-height: 20px;
+    font-weight: 900;
     margin-top: 45px;
     height: unset;
     left: 35px;
