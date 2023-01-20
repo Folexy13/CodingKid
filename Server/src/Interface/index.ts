@@ -14,8 +14,8 @@ export interface Tutors {
   middleName?: string;
   role: "MENTOR" | "TUTOR";
   likedinProfile: string;
-  availability: string;
-  modeOfTeaching: "OFFLINE" | "ONLINE" | "HYBRID";
+  availability?: string;
+  modeOfTeaching: "ONLINE" | "HYBRID";
   teachSelfLearning: Boolean;
   phone: string;
   location: string;

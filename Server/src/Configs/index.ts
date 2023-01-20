@@ -27,6 +27,7 @@ type Config = {
     acquire: number;
     idle: number;
   };
+  PUBLIC_ROUTES: string[] | [];
 };
 
 const getConfig = (): Config => {
@@ -55,6 +56,18 @@ const getConfig = (): Config => {
       acquire: 30000,
       idle: 100000,
     },
+    PUBLIC_ROUTES: [
+      "/",
+      "/login",
+      "/register",
+      "/send-otp",
+      "/verify-otp",
+      "/change-password",
+      "/reset-password",
+      "/admin/login",
+      "/admin/change-password",
+      "/admin/reset-password",
+    ],
   };
 };
 

@@ -5,6 +5,7 @@ import morgan from "morgan";
 import config from "./Configs";
 import router from "./Routes";
 import helmet from "helmet";
+import { isAuthorized } from "./Helpers/middlewares";
 
 // Initialising app
 const app: Application = express();
@@ -21,4 +22,8 @@ app.listen(config.PORT, () =>
 
 app.use(helmet());
 
+app.use(router);
+
+//Routes
+app.all("*", isAuthorized);
 app.use(router);

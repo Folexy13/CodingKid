@@ -8,18 +8,18 @@ export default function (sequelize: any, Sequelize: any) {
         primaryKey: true,
         defaultValue: Sequelize.UUIDV1,
       },
-      firstName: {
+      names: {
         type: Sequelize.STRING,
-        allowNull: false,
-      },
-      lastName: {
-        type: Sequelize.STRING,
-        allowNull: false,
+        defaultValue: "",
       },
       email: {
         type: Sequelize.STRING,
         allowNull: false,
         unique: true,
+      },
+      course: {
+        type: Sequelize.ARRAY(Sequelize.TEXT),
+        defaultValue: [],
       },
       password: {
         type: Sequelize.STRING,
@@ -30,19 +30,50 @@ export default function (sequelize: any, Sequelize: any) {
         allowNull: false,
         unique: true,
       },
-      gender: {
-        type: Sequelize.STRING,
-        allowNull: false,
+      modeOfTeaching: {
+        type: Sequelize.ENUM("ONLINE", "HYBRID"),
+        defaultValue: "ONLINE",
       },
-      walletbalance: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        defaultValue: "0.00",
+      gender: {
+        type: Sequelize.ENUM("Male", "Female"),
+        defaultValue: "Male",
       },
       status: {
         type: Sequelize.ENUM("active", "inactive"),
         defaultValue: "inactive",
       },
+      resume: {
+        type: Sequelize.STRING,
+      },
+      likedinProfile: {
+        type: Sequelize.STRING,
+      },
+      nextOfKinFirstName: {
+        type: Sequelize.STRING,
+      },
+      nextOfKinLastName: {
+        type: Sequelize.STRING,
+      },
+      nextOfKinPhone: {
+        type: Sequelize.STRING,
+      },
+      nextOfKinEmail: {
+        type: Sequelize.STRING,
+      },
+      nextOfKinAddress: {
+        type: Sequelize.STRING,
+      },
+      ipAddress: {
+        type: Sequelize.STRING,
+      },
+      meansOfId: {
+        type: Sequelize.STRING,
+      },
+      role: {
+        type: Sequelize.ENUM("MENTOR", "TUTOR"),
+        defaultValue: "MENTOR",
+      },
+      lastLogin: Sequelize.DATE,
     },
     {
       freezeTableName: true,
@@ -50,20 +81,15 @@ export default function (sequelize: any, Sequelize: any) {
   );
 
   Tutors.associate = function (models: any) {
-    models.users.hasOne(models.userSettings, {
+    models.tutors.hasOne(models.tutorSettings, {
       onDelete: "cascade",
       targetKey: "id",
-      foreignKey: "userId",
+      foreignKey: "tutorId",
     });
-    models.users.hasMany(models.otp, {
+    models.tutors.hasMany(models.otp, {
       onDelete: "cascade",
       targetKey: "id",
-      foreignKey: "userId",
-    });
-    models.users.hasMany(models.transactions, {
-      onDelete: "cascade",
-      targetKey: "id",
-      foreignKey: "userId",
+      foreignKey: "tutorId",
     });
   };
   return Tutors;
