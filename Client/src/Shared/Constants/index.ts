@@ -10,3 +10,13 @@ export const ROUTES: Object = {
 };
 
 export const IMAGES: any = {};
+
+export const APPCONFIG = {
+  darkBackgroundColor: "#000",
+  lightBackgroundColor: " #fff",
+  grayBackgroundColor: "#e0e0e0",
+  darkColor: "#fff",
+  lightColor: "#002",
+  appName: "CodingKidsAfrica",
+  appThemeColor: "#840951",
+};

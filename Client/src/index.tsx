@@ -1,9 +1,10 @@
-import React from "react";
+import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import { Provider } from "react-redux";
 import store from "./Redux";
 import reportWebVitals from "./reportWebVitals";
+import { Loader } from "./Shared/Components";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -11,7 +12,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <Suspense fallback={<Loader />}>
+        <App />
+      </Suspense>
     </Provider>
   </React.StrictMode>
 );

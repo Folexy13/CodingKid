@@ -1,14 +1,15 @@
-import React from "react";
-import { Loader } from "./Shared/Components";
-import GlobalStyles from "./Styles/global";
-
+import React, { useState } from "react";
+import { Home } from "./Layout";
+import { Header, Section } from "./Shared/Components";
+import { ThemeContext } from "./Shared/Context/ThemeContext";
+import GlobalStyles from "./Shared/Styles/global";
 const App: React.FC = () => {
+  const [theme, setTheme] = useState("light");
   return (
-    <>
+    <ThemeContext.Provider value={{ theme, setTheme }}>
       <GlobalStyles />
-      {/* <div className="App">In development...</div> */}
-      <Loader />
-    </>
+      <Home />
+    </ThemeContext.Provider>
   );
 };
 
