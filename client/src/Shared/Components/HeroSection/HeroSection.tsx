@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import TextTransition, { presets } from "react-text-transition";
-import { APPCONFIG } from "../../Constants";
+import { APPCONFIG, ICON } from "../../Constants";
 import { ThemeContext } from "../../Context/ThemeContext";
 import { AppTheme } from "../../Styles/AppTheme";
 import { Button } from "../Button/Button";
@@ -49,7 +49,7 @@ const HeroSection = () => {
           </TextTransition>
           IS A LANGUAGE EVERY KID SHOULD LEARN HOW TO SPEAK
           <Button
-            height={59.41}
+            height={45}
             width={174.53}
             backgroundColor={"#840951"}
             color="#fff"
@@ -59,7 +59,12 @@ const HeroSection = () => {
         </HeroTopLeft>
         <HeroBottomLeft />
       </HeroLeft>
-      <HeroRight></HeroRight>
+      <HeroRight>
+        <div>
+          <img src={ICON.girl} alt="" />
+          <img src={ICON.boy} alt="" />
+        </div>
+      </HeroRight>
     </Container>
   );
 };

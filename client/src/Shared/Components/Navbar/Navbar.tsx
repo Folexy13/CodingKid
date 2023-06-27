@@ -1,4 +1,3 @@
-import React from "react";
 import { useContext } from "react";
 import { ThemeContext } from "../../Context/ThemeContext";
 import { AppTheme } from "../../Styles/AppTheme";
@@ -6,16 +5,18 @@ import ThemeToggle from "../ThemeToggler/ThemeToggler";
 import { Container, List, Menu, MenuList } from "./Styles";
 import {
   FaUserAlt,
-  FaUserGraduate,
   FaUserTie,
   FaPhoneAlt,
+  FaSearch,
 } from "react-icons/fa";
 import Logo from "../../../Assets/Images/cka.png";
-import { APPCONFIG } from "../../Constants";
+import { APPCONFIG, ROUTES } from "../../Constants";
 import { Button } from "../Button/Button";
 import { color } from "../../Utility/styles";
+import { useHistory } from "react-router-dom";
 
 const Navbar = () => {
+  const history = useHistory()
   const { theme } = useContext(ThemeContext);
   const Styles: AppTheme = {
     dark: {
@@ -43,13 +44,14 @@ const Navbar = () => {
       <ThemeToggle />
       <Menu>
         <Button
+          onclick={() => history.push(ROUTES.SEARCH)}
           backgroundColor={
             theme === "light"
               ? color.backgroundSecondary
               : color.backgroundLightPrimary
           }
           width={144}
-          height={51}
+          height={40}
         >
           <span
             style={{
@@ -58,7 +60,7 @@ const Navbar = () => {
               }`,
             }}
           >
-            <FaUserGraduate size={16} style={{ margin: "0px 10px" }} />
+            <FaSearch size={16} style={{ margin: "0px 10px" }} />
             Find a Tutor
           </span>
         </Button>
@@ -69,7 +71,7 @@ const Navbar = () => {
               : color.backgroundLightPrimary
           }
           width={144}
-          height={51}
+          height={40}
         >
           <span
             style={{

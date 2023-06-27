@@ -1,18 +1,24 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
-import { Footer, Header, HeroSection, Section } from "../../../Shared/Components";
+import {
+  Footer,
+  Header,
+  HeroSection,
+  Section,
+} from "../../../Shared/Components";
 import { ThemeContext } from "../../../Shared/Context/ThemeContext";
 import { AppTheme } from "../../../Shared/Styles/AppTheme";
-import { APPCONFIG } from "../../../Shared/Constants";
+import { APPCONFIG, ICON } from "../../../Shared/Constants";
 import Child from "../../../Assets/Images/child.png";
 import Boy from "../../../Assets/Images/Boy.png";
 import Boy2 from "../../../Assets/Images/Boy2.png";
 import MotherNChild from "../../../Assets/Images/mothernchild.png";
 import { color } from "../../../Shared/Utility/styles";
-import { useScroll,motion } from "framer-motion";
+import { useScroll, motion } from "framer-motion";
+import { Testimonial } from "./Styles";
 
-const Homepage = (props: any) => {
-  const { scrollYProgress } = useScroll()
+const Homepage = () => {
+  const { scrollYProgress } = useScroll();
 
   const { theme } = useContext(ThemeContext);
   const Styles: AppTheme = {
@@ -34,7 +40,7 @@ const Homepage = (props: any) => {
   };
   return (
     <div style={themeStyle}>
-       <motion.div
+      <motion.div
         className="progress-bar"
         style={{ scaleX: scrollYProgress }}
       />
@@ -47,6 +53,12 @@ const Homepage = (props: any) => {
           prepare them for the future.."
         btnText=" Find a Tutor"
         src={Child}
+      />
+      <Section
+        type="rightNoImg"
+        title="Digital skills specially designed for your kids."
+        subtitle="Specially designed skills to help your child learn better in a short period of time"
+        btnText=" Find a Trainer"
       />
       <Section
         type="left"
@@ -63,6 +75,25 @@ const Homepage = (props: any) => {
         src={Boy}
         btnWidth={218}
       />
+      <Testimonial>
+        <h1>Learning has never been made easier</h1>
+        <div className="flex">
+          <img src={ICON.adesiji} alt="" />
+          <div>
+            <h3>
+              <b>Dr (Mrs) Adesiji</b>
+            </h3>
+            <p>Physics Lecturer,FUTA</p>
+          </div>
+        </div>
+        <div>
+          My daughter never had interest in programming, but with{" "}
+          <b>Codingkids</b> the story changed. She is not just enjoying the act
+          of writing codes, she is now helping her brother understand it better.
+          I am happy that I engaged <b>Codingkids</b> to introduce my children
+          to the act of programming.
+        </div>
+      </Testimonial>
       <Section
         type="right"
         title="Why people believe in us"
@@ -80,7 +111,7 @@ const Homepage = (props: any) => {
         src={MotherNChild}
         color={color.textDarkest}
       />
-      <Footer/>
+      <Footer />
     </div>
   );
 };

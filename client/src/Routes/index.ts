@@ -4,13 +4,21 @@ import { lazy } from "react";
 const TemplateTitle: string = "%s -Coding Kids";
 
 // ** Default Route
-const DefaultRoute: string = "/home";
+const DefaultRoute: string = "/home" ;
 
 // ** Merge Routes
-const Routes: string | Object = [
+const Routes: any = [
   {
-    path: "/home",
+    path: "/",
     component: lazy(() => import("../Layout/Public/Homepage/Homepage")),
+  },
+  {
+    path: "/search",
+    layout: "BlankLayout",
+    meta: {
+      authRoute: true,
+    },
+    component: lazy(() => import("../Layout/Public/Searchpage/Searchpage")),
   },
   //   {
   //     path: "/second-page",

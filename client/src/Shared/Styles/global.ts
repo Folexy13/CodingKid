@@ -28,4 +28,8 @@ body{
   transform-origin: 0%;
   z-index:10000
 }
+a{
+    text-decoration:none;
+    color:inherit
+}
 `;

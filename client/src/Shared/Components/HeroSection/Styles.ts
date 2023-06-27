@@ -42,4 +42,16 @@ export const HeroRight = styled.div`
   right: -200px;
   top: 20px;
   position: absolute;
+  overflow: hidden;
+
+  img {
+    transform: rotate(-31.5deg);
+    @media (min-width: 1600px) {
+      margin-top: 240px;
+      margin-left:unset
+    }
+    // margin-top: 100px;
+    margin-left:100px;
+    object-fit: cover;
+  }
 `;

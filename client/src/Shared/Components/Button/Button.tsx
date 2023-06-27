@@ -8,6 +8,7 @@ interface Props {
   height: number | string;
   children: any;
   btnType?: string;
+  onclick?:any
 }
 
 export const Button = (props: Props) => {
@@ -25,9 +26,13 @@ export const Button = (props: Props) => {
     border: `1px solid ${props.color}`,
   };
   if (props.btnType === "outline") {
-    return <Container style={OutlineStyle}>{props.children}</Container>;
+    return <Container onClick={props.onclick} style={OutlineStyle}>{props.children}</Container>;
   }
-  return <Container style={Styles}>{props.children}</Container>;
+  return (
+    <Container onClick={props.onclick} style={Styles}>
+      {props.children}
+    </Container>
+  );
 };
 
 Button.defaultProps = {

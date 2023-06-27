@@ -31,7 +31,8 @@ export const Spinner = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 90vh;
+  min-height: 100vh;
+  background:#ccc;
   animation: ${animateBg} 10s linear infinite;
 `;
 
